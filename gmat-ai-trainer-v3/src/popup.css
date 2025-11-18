@@ -1,0 +1,36 @@
+
+:root { --bg:#0b1020; --card:#131a33; --text:#e8ecff; --muted:#9aa3c7; --accent:#6ea8fe; --ok:#35c759; --bad:#ff453a; }
+* { box-sizing: border-box; }
+html, body { height: auto; overflow: hidden; margin:0; padding:0; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--text); background:var(--bg); }
+#app { width: 640px; min-height: 680px; max-height: 780px; overflow-y: auto; }
+header { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--card); border-bottom:1px solid #1e2748; position:sticky; top:0; z-index:10; }
+h1 { font-size:16px; margin:0; }
+a#openOptions { color: var(--accent); text-decoration:none; font-size:12px; }
+section { padding:12px 14px; }
+h2 { font-size:13px; color:var(--muted); margin:6px 0 8px; text-transform:uppercase; letter-spacing:0.06em; }
+.title-row { display:flex; align-items:center; gap:8px; }
+.badges { display:inline-flex; gap:6px; }
+#questionEditor, #genStem, #explanation { background:#0a1224; border:1px solid #2a3a75; padding:12px; border-radius:12px; white-space:pre-wrap; }
+#questionEditor { color:#ffffff; resize:vertical; min-height:260px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size:13px; line-height:1.45; width:100%; }
+.buttons { display:flex; gap:8px; margin-top:8px; }
+button { background:#1d284f; border:1px solid #2a3a75; color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; font-weight:600; }
+button:hover { border-color:#3d56ad; }
+.hidden { display:none; }
+.meta { color: var(--muted); font-size:12px; }
+.row { display:flex; gap:8px; align-items:center; margin-top:6px; }
+.row.spread { justify-content:space-between; }
+.block { background:#0a1224; border:1px solid #2a3a75; padding:12px; border-radius:12px; }
+.badge { display:inline-block; padding:2px 6px; border-radius:999px; border:1px solid #2a3a75; background:#0f1730; }
+#genOptions { list-style:none; padding:0; margin:10px 0; display:grid; gap:8px; }
+#genOptions li { border:1px solid #2a3a75; background:#0f1730; padding:8px; border-radius:10px; cursor:pointer; }
+#genOptions li.selected { outline:2px solid var(--accent); }
+#genOptions li.correct { outline:2px solid var(--ok); }
+#genOptions li.incorrect { outline:2px solid var(--bad); }
+#feedback { min-height:20px; font-weight:700; margin-top:4px; }
+.spinner { width:16px; height:16px; border:2px solid #2a3a75; border-top-color:#6ea8fe; border-radius:50%; display:inline-block; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.error { background:#2a0f14; border:1px solid #7a2130; color:#ffd6db; padding:10px; border-radius:10px; margin-top:8px; white-space:pre-wrap; }
+#historyList { list-style:none; padding:0; margin: 8px 0; display:grid; gap:8px; }
+#historyList li { border:1px solid #2a3a75; background:#0f1730; padding:8px; border-radius:10px; }
+#historyList .row { justify-content:space-between; }

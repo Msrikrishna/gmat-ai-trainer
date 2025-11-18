@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>GMAT AI Trainer</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>GMAT AI Trainer</h1>
+      <div class="row">
+        <a id="openOptions" href="#" style="margin-left:8px;">Settings</a>
+      </div>
+    </header>
+
+    <section id="context">
+      <h2 class="title-row">
+        Detected Question
+        <span id="detectedBadges" class="meta badges"></span>
+      </h2>
+      <textarea id="questionEditor" rows="10" spellcheck="false" placeholder="If we can't auto-detect, paste the question here."></textarea>
+      <div class="buttons">
+        <button class="diff" data-d="Easier">Easier</button>
+        <button class="diff" data-d="Same">Same</button>
+        <button class="diff" data-d="Harder">Harder</button>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <label class="meta" for="bandSelect" style="min-width:140px;">Target band (optional)</label>
+        <select id="bandSelect" style="flex:1; background:#0f1730; color:#e8ecff; border:1px solid #1d2a57; padding:6px; border-radius:10px;">
+          <option value="-">-</option>
+          <option value="505-555">505-555</option>
+          <option value="555-605">555-605</option>
+          <option value="605-655">605-655</option>
+          <option value="655-705">655-705</option>
+          <option value="705-755">705-755</option>
+          <option value="755-805">755-805</option>
+        </select>
+        <button id="generateExact" title="Generate using selected band">Generate</button>
+      </div>
+      <div id="errorPanel" class="error hidden"></div>
+    </section>
+
+    <section id="generated" class="hidden">
+      <div id="loadingState" class="hidden loading-row">
+        <span class="spinner"></span>
+        <span class="meta">Generating…</span>
+      </div>
+      <div id="promptBar" class="row spread">
+        <div id="modelInfo" class="meta"></div>
+        <button id="copyPromptTop">Copy Prompt</button>
+      </div>
+      <h2>Generated Question</h2>
+      <div id="genStem" class="block"></div>
+      <div id="genMeta" class="meta"></div>
+      <ul id="genOptions"></ul>
+      <div id="feedback"></div>
+      <div class="row">
+        <button id="showExplanation" class="hidden">Show explanation</button>
+      </div>
+      <div id="explanation" class="block hidden"></div>
+    </section>
+
+    <section id="historyPanel" class="hidden">
+      <h2>History</h2>
+      <ul id="historyList"></ul>
+    </section>
+
+    <section id="historyToggle" style="padding:12px 14px;">
+      <div class="row">
+        <button id="toggleHistoryBtn">Show history</button>
+      </div>
+    </section>
+
+    <footer>
+      <small>Tip: If extraction fails, paste the question into the editor above, then click Easier/Same/Harder.</small>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

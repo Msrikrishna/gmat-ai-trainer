@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>Settings • GMAT AI Trainer</title>
+  <style>
+    body { margin:0; background:#0b1020; color:#e8ecff; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+    #wrap { padding:12px 14px; }
+    .row { display:flex; gap:10px; align-items:center; margin:8px 0; }
+    input[type="password"], input[type="text"], select { width: 100%; background:#0f1730; color:#e8ecff; border:1px solid #1d2a57; padding:8px; border-radius:10px; }
+    label { width: 190px; color:#9aa3c7; font-size: 13px; }
+    button { background:#1d284f; border:1px solid #2a3a75; color:#e8ecff; padding:8px 10px; border-radius:10px; cursor:pointer; font-weight:600; }
+    button:hover { border-color:#3d56ad; }
+    .hint { color:#9aa3c7; font-size:12px; }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <h1 style="font-size:16px;margin:0 0 8px;">Settings</h1>
+
+    <div class="row">
+      <label for="provider">AI Provider</label>
+      <select id="provider">
+        <option value="openai">OpenAI</option>
+        <option value="gemini">Google Gemini</option>
+      </select>
+    </div>
+
+    <h2 class="hint">OpenAI</h2>
+    <div class="row">
+      <label for="openai_model">Model (dropdown)</label>
+      <select id="openai_model"></select>
+    </div>
+    <div class="row">
+      <label for="openai_model_custom">Model (custom text)</label>
+      <input id="openai_model_custom" type="text" placeholder="e.g., gpt-5, gpt-4o-mini" />
+    </div>
+    <div class="row">
+      <label for="openai_key">API Key</label>
+      <input id="openai_key" type="password" placeholder="sk-..." />
+    </div>
+    <div class="row">
+      <button id="openai_refresh">Refresh OpenAI models</button>
+    </div>
+
+    <h2 class="hint">Gemini</h2>
+    <div class="row">
+      <label for="gemini_model">Model (dropdown)</label>
+      <select id="gemini_model"></select>
+    </div>
+    <div class="row">
+      <label for="gemini_model_custom">Model (custom text)</label>
+      <input id="gemini_model_custom" type="text" placeholder="e.g., gemini-2.5-pro" />
+    </div>
+    <div class="row">
+      <label for="gemini_key">API Key</label>
+      <input id="gemini_key" type="password" placeholder="AIza..." />
+    </div>
+    <div class="row">
+      <button id="gemini_refresh">Refresh Gemini models</button>
+    </div>
+
+    <div class="row">
+      <button id="test">Test API</button>
+      <span id="status" class="hint"></span>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
